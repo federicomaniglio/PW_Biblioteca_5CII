@@ -1,64 +1,4 @@
-@startuml Biblioteca_UseCases
-left to right direction
-skinparam packageStyle rectangle
-
-actor Studente
-actor Docente
-actor Bibliotecario
-actor Amministratore
-actor "Sistema Esterno" as API
-
-rectangle "Sistema Biblioteca" {
-  
-  package "Gestione Utenti" {
-    usecase (Registrazione) as UC1
-    usecase (Login) as UC2
-    usecase (Gestisci Profilo) as UC3
-    usecase (Calcola CF) as UC4
-  }
-  
-  package "Consultazione" {
-    usecase (Cerca Libro) as UC5
-    usecase (Visualizza Dettaglio) as UC6
-    usecase (Ricerca Avanzata) as UC7
-  }
-  
-  package "Prestiti" {
-    usecase (Prenota Libro) as UC8
-    usecase (Visualizza Prestiti) as UC9
-    usecase (Rinnova Prestito) as UC10
-    usecase (Gestisce Prestito) as UC11
-    usecase (Gestisce Restituzione) as UC12
-    usecase (Calcola Multa) as UC13
-    usecase (Scansiona Barcode) as UC14
-  }
-  
-  package "Catalogazione" {
-    usecase (Inserisci Libro) as UC15
-    usecase (Importa da API) as UC16
-    usecase (Genera Barcode) as UC17
-    usecase (Inventario RFID) as UC18
-  }
-  
-  package "Analytics" {
-    usecase (Visualizza Dashboard) as UC19
-    usecase (Genera Report) as UC20
-    usecase (Statistiche Personali) as UC21
-  }
-}
-
-' Relazioni Attori-Use Cases
-Studente --> UC1
-Studente --> UC2
-Studente --> UC3
-Studente --> UC5
-Studente --> UC6
-Studente --> UC8
-Studente --> UC9
-Studente --> UC10
-Studente --> UC21
-
-Docente --|> Studentea# SCENARIO PROGETTO - SISTEMA GESTIONALE BIBLIOTECA SCOLASTICA
+# SCENARIO PROGETTO - SISTEMA GESTIONALE BIBLIOTECA SCOLASTICA
 
 ## Contesto e Situazione Attuale
 
@@ -438,23 +378,3 @@ API --> UC16
    ├─ Versioning dei documenti
    └─ Sincronizzazione continua codice ↔ documentazione
 ```
-
-Bibliotecario --> UC11
-Bibliotecario --> UC12
-Bibliotecario --> UC15
-Bibliotecario --> UC18
-
-Amministratore --> UC19
-Amministratore --> UC20
-
-' Relazioni Include/Extend
-UC1 ..> UC4 : <<include>>
-UC11 ..> UC14 : <<include>>
-UC12 ..> UC14 : <<include>>
-UC12 ..> UC13 : <<include>>
-UC15 ..> UC16 : <<extend>>
-UC15 ..> UC17 : <<include>>
-
-API --> UC16
-
-@enduml
