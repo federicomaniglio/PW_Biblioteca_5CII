@@ -1,3 +1,27 @@
-remote_theme: poole/hyde
+# Configurazione GitHub Pages per la consegna
+title: "Consegna Compito"
+description: "Istruzioni per gli studenti"
+# Tema scuro tramite Jekyll Remote Theme
+remote_theme: mmistakes/minimal-mistakes
+# Plugin richiesti dal tema
 plugins:
   - jekyll-remote-theme
+# Impostazioni aggiuntive per il tema
+minimal_mistakes_skin: dark          # tema scuro
+minimal_mistakes_navigation: false   # niente barra di navigazione se non serve
+minimal_mistakes_show_downloads: false
+# Layout e formattazione
+markdown: kramdown
+kramdown:
+  input: GFM                        # GitHub Flavored Markdown
+  syntax_highlighter: rouge         # evidenziazione codice
+highlighter: rouge
+# Disabilitare paginazione e sidebar
+paginate: 0
+show_sidebar: false
+# Altro
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
